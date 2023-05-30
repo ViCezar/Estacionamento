@@ -32,33 +32,39 @@
   function addCarToGarage(car) {
     const row = document.createElement("tr");
     row.innerHTML = `
-    <td>${car.name === "Caminhão" ? "Camionete" : car.name}</td>
-        <td>${car.licence}</td>
-        <td data-time="${car.time}">
-            ${new Date(car.time)
-                .toLocaleString('pt-BR', { 
-                    hour: 'numeric', minute: 'numeric' 
-                })}
-        </td>
-        <td>
-            <button class="delete">x</button>
-        </td>
-    `;
-
+      <td>${car.name === "Caminhão" ? "Camionete" : car.name}</td>
+      <td>${car.licence}</td>
+      <td data-time="${car.time}">
+        ${new Date(car.time)
+          .toLocaleString("pt-BR", {
+            hour: "numeric",
+            minute: "numeric",
+          })}
+      </td>
+      <td>
+        <button class="delete">x</button>
+      `;
+  
     const isento = isCarIsento(car);
     const deleteButton = row.querySelector(".delete");
-    deleteButton.style.backgroundColor = isento ? "green" : "red";
-    
-    
-
+    deleteButton.style.backgroundColor = "green";
+    // Verificar se o tempo de permanência é superior a 15 minutos (900000 milissegundos)
+    const tempoPermanencia = new Date() - new Date(car.time);
+    if (tempoPermanencia > 900000) {
+      deleteButton.style.backgroundColor = "red";
+    }
+  
     $("#garage").appendChild(row);
-
+  
     const vehicleCounts = countVehicles();
     $("#carCount").textContent = vehicleCounts.Carro;
     $("#motoCount").textContent = vehicleCounts.Moto;
     $("#truckCount").textContent = vehicleCounts.Caminhão;
-    $("#carIsentoCount").textContent = vehicleCounts.CarroIsento + vehicleCounts.MotoIsento + vehicleCounts.CaminhãoIsento;
-}
+    $("#carIsentoCount").textContent =
+      vehicleCounts.CarroIsento +
+      vehicleCounts.MotoIsento +
+      vehicleCounts.CaminhãoIsento;
+  }
 
 
 function isCarIsento(car) {

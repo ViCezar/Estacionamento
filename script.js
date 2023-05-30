@@ -119,7 +119,7 @@ function isCarIsento(car) {
 
     if (tempoPermanencia <= 900000) {
       // Até 15 minutos o cliente está isento de pagamento
-      valorAPagar = 11;
+      valorAPagar = 0;
     } else if (tempoPermanencia <= 3600000) {
       // De 16 a 60 minutos é cobrado R$ 1,50
       valorAPagar = 1.5;

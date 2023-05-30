@@ -116,8 +116,28 @@ function isCarIsento(car) {
     arrecadacaoTotal += valorAPagar;
   
     renderGarage();
+
+    if (tempoPermanencia <= 900000) {
+      // Até 15 minutos o cliente está isento de pagamento
+      valorAPagar = 11;
+    } else if (tempoPermanencia <= 3600000) {
+      // De 16 a 60 minutos é cobrado R$ 1,50
+      valorAPagar = 1.5;
+    } else {
+      // Após 60 minutos de permanência é cobrado um adicional de R$ 1,00 por hora
+      const horasAdicionais = Math.ceil((tempoPermanencia - 3600000) / 3600000);
+      valorAPagar = 1.5 + horasAdicionais;
+    }
+  
+    if (valorAPagar > 10.5) {
+      // Exibir alerta de cobrança indevida
+      alert("Cobrança indevida. Valor a pagar excede R$ 10,50.");
+    }
+
+  
   }
   
+
   function countVehicles() {
     const garage = getGarage();
     const counts = {

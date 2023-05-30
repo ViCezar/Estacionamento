@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  width: 30%;
+  margin: 2rem auto;
+}
+
+div {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: #eee;
+  padding: 0.7rem;
+  position:fixed;
+  left:18rem
+}
+
+input, button, select {
+  width: 98%;
+  padding: 0.6rem 0.4rem;
+  margin: 0.4rem;
+  font-size:1.2rem;
+}
+
+
+button {
+  text-decoration: none;
+  border: none;
+  display: block;
+  cursor: pointer;
+  text-align: center;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.success {
+  background-color: rgb(54, 80, 231);
+  color: rgb(255, 255, 255);
+}
+
+.delete {
+  background-color: rgb(231, 54, 54);
+  color: rgb(255, 255, 255);
+  border-radius:50%
+}
+
+
+table {
+  background-color: #eee;
+  margin-top: .9rem;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 5px 25px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+#vehicle {
+  font-size:1.2rem;
+}
+

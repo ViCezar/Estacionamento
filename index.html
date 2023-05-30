@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Estacionamento</title>
+    <link rel="stylesheet" href="style.css">  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div>
+      <select id="vehicle">
+        <option value="Carro">Carro de passeio</option>
+        <option value="Moto">Moto</option>
+        <option value="Caminhão">Camionete</option>
+      </select>
+      
+        <input type="text" id="licence" pattern=".{7,}" placeholder="Placa do veículo" autocomplete="off">
+        <button id="send" class="success">Registrar</button>
+        
+
+        <table>
+          <tr>
+            <th>Tipo</th>
+            <th>Quantidade</th>
+          </tr>
+          <tr>
+            <td>Carro de passeio</td>
+            <td id="carCount">0</td>
+          </tr>
+          <tr>
+            <td>Moto</td>
+            <td id="motoCount">0</td>
+          </tr>
+          <tr>
+            <td>Camionete</td>
+            <td id="truckCount">0</td>
+          </tr>
+          <tr>
+            <td>Isento</td>
+            <td id="carIsentoCount">0</td>
+          </tr>
+          <tr>
+            <td>Arrecadação Total</td>
+            <td id="arrecadacaoTotal">R$ 0.00</td>
+          </tr>
+        </table>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Veículo</th>
+                <th>Placa</th>
+                <th>Entrada</th>
+                <th>Finalizar</th>
+            </tr>
+        </thead>
+        <tbody id="garage"></tbody>
+    </table>
+</body>
+
+<script src="script.js"></script>
+</html>
